@@ -1,9 +1,5 @@
+import BaseLayout from './base-layout'
 
 export default function Home() {
-  return (
-    <div>
-      Hello World
-    </div>
-    
-  );
+  return <BaseLayout>Home Page</BaseLayout>
 }
