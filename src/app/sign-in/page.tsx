@@ -6,7 +6,7 @@ import {
   GithubAuthProvider,
   AuthProvider,
 } from 'firebase/auth'
-import { auth } from '@utils/firebase'
+import { auth } from '@components/auth/firebase'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function AuthenticationPage() {
