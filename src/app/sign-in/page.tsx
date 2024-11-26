@@ -5,9 +5,8 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   AuthProvider,
-  onAuthStateChanged,
 } from 'firebase/auth'
-import { auth } from './config' // Import your Firebase config
+import { auth } from '@utils/firebase'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function AuthenticationPage() {
