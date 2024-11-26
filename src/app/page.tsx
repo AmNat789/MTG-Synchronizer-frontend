@@ -1,21 +1,12 @@
-'use client';
+'use client'
 
-import { useAuth } from '@components/auth/auth-context';
-import Login from "@components/auth/login";
-import LogoutButton from "@components/auth/logout-button";
-
+import BaseLayout from "@components/base-layout";
 
 export default function Home() {
-  const { user, logOut } = useAuth();
-
-  if (!user) {
-    return <Login />;
-  }
-
-  console.log(user)
 
   return (<>
-  <LogoutButton/>
-  Home Page
+  <BaseLayout>
+    Home Page
+  </BaseLayout>
   </>)
 }
