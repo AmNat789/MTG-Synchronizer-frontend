@@ -1,26 +1,30 @@
-"use client"
+'use client'
 
-import { useAuth } from '@components/auth/auth-context';
-import Login from "@components/auth/login";
-import LogoutButton from "@components/auth/logout-button";
-import { useState, useEffect } from 'react';
+import { useAuth } from '@utils/auth/auth-context'
+import Login from '@components/auth/login'
+import LogoutButton from '@components/auth/logout-button'
 
-
-export default function BaseLayout({children}: {children: React.ReactNode}) {
-  const { user, loading } = useAuth();
+export default function BaseLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const { user, loading } = useAuth()
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading authentication...</div>
   }
 
   if (!user) {
-    return <Login />;
+    return <Login />
   }
 
-  console.log(user)
-
-  return (<>
-  <LogoutButton/>
-  {children}
-  </>)
+  return (
+    <>
+      <header>
+        <LogoutButton />
+      </header>
+      <main>{children}</main>
+    </>
+  )
 }
