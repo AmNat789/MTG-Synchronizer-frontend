@@ -19,6 +19,8 @@ export default function BaseLayout({
     return <Login />
   }
 
+  console.log(user)
+
   return (
     <>
       <header>

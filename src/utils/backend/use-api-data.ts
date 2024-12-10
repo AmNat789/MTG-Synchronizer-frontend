@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axiosClient from '@utils/backend/axios-client'
+import backendApiClient from '@utils/backend/api-client'
 import { useAuth } from '@utils/auth/auth-context'
 import { AxiosError, AxiosRequestConfig } from 'axios'
 
@@ -39,7 +39,7 @@ const useApiData = <T>(
           ...(body && { data: body }), // Include `data` only if a body is provided
         }
 
-        const response = await axiosClient(config)
+        const response = await backendApiClient(config)
         setData(response.data)
       } catch (err) {
         setError(err as AxiosError)

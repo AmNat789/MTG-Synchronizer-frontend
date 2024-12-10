@@ -1,14 +1,13 @@
 import axios from 'axios'
-import { auth } from '@utils/auth/firebase'
 import { getAuth, User } from 'firebase/auth'
 
 let isInitialized = false // To prevent redundant initialization
 
-const axiosClient = axios.create({
+const backendApiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL, // Replace with your backend URL
 })
 
-axiosClient.interceptors.request.use(
+backendApiClient.interceptors.request.use(
   async config => {
     // Check if the user is authenticated
     const currentUser: User | null = getAuth().currentUser
@@ -36,4 +35,4 @@ axiosClient.interceptors.request.use(
   }
 )
 
-export default axiosClient
+export default backendApiClient
