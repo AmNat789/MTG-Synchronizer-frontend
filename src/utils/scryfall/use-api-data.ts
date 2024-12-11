@@ -1,50 +1,60 @@
-import { useState, useEffect } from 'react';
-import scryfallApiClient from '@utils/scryfall/api-client';
-import { AxiosError, AxiosRequestConfig } from 'axios';
-
+import { useState, useEffect } from 'react'
+import scryfallApiClient from '@utils/scryfall/api-client'
+import { AxiosError, AxiosRequestConfig } from 'axios'
 
 interface UseScryfallDataReturn<T> {
-  data: T | null;
-  loading: boolean;
-  error: AxiosError | null;
+  data: T | null
+  loading: boolean
+  error: AxiosError | null
 }
 
+interface UseScryfallDataProps {
+  endpoint: string
+  make_request: boolean
+  use_base_url?: boolean
+  body?: any
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
+}
 
-const useScryfallData = <T>(
-  endpoint: string | null,
-  use_base_url: boolean = true
-): UseScryfallDataReturn<T> => {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<AxiosError | null>(null);
+const useScryfallData = <T>({
+  endpoint,
+  make_request,
+  use_base_url = true,
+  body = null,
+  method = 'GET',
+}: UseScryfallDataProps): UseScryfallDataReturn<T> => {
+  const [data, setData] = useState<T | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<AxiosError | null>(null)
 
-  endpoint = use_base_url ? `https://api.scryfall.com${endpoint}` : endpoint;
+  endpoint = use_base_url ? `https://api.scryfall.com${endpoint}` : endpoint
 
   useEffect(() => {
-    if(endpoint == null) return;
+    if (!make_request) return
     const fetchData = async () => {
-      setLoading(true);
-      setError(null);
+      setLoading(true)
+      setError(null)
 
-      try {        
+      try {
         const config: AxiosRequestConfig = {
-          method: 'GET',
-          url: endpoint
-        };
+          method: method,
+          url: endpoint,
+          data: body,
+        }
 
-        const response = await scryfallApiClient(config);
-        setData(response.data);
+        const response = await scryfallApiClient(config)
+        setData(response.data)
       } catch (err) {
-        setError(err as AxiosError);
+        setError(err as AxiosError)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchData();
-  }, [endpoint]);
+    fetchData()
+  }, [make_request])
 
-  return { data, loading, error };
-};
+  return { data, loading, error }
+}
 
-export default useScryfallData;
+export default useScryfallData
