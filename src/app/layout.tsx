@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
 import { AuthProvider } from '@utils/auth/auth-context'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -27,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <AuthProvider>
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          {children}
-        </body>
+        <AppRouterCacheProvider>
+          <body className={`${geistSans.variable} ${geistMono.variable}`}>
+            {children}
+          </body>
+        </AppRouterCacheProvider>
       </AuthProvider>
     </html>
   )
