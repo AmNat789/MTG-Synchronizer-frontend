@@ -18,9 +18,7 @@ export default function BaseLayout({
   if (!user) {
     return <Login />
   }
-
-  console.log(user)
-
+  
   return (
     <>
       <header>

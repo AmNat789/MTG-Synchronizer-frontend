@@ -1,5 +1,3 @@
-'use client'
-
 import { Button, TextField } from '@mui/material'
 import { UseApiDataReturn } from '@utils/backend/use-api-data'
 import { useState, useEffect } from 'react'
@@ -87,12 +85,6 @@ export default function ImportCards({ api }: { api: UseApiDataReturn<any> }) {
       return result
     } catch (err: any) {
       setError(true)
-      // setHelperText(
-      //   `
-      //   Wrong Format: <br>
-      //   <number> <card name> expected
-      //   For example: 4 Lightning Bolt
-      //   `)
       setHelperText(
         <>
           Wrong Format: <br />
