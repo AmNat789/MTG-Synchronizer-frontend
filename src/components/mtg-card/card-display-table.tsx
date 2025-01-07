@@ -1,10 +1,13 @@
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material'
 import { ResponseCardInCollection } from 'app/collection/page'
+import CardDisplayRow from './card-display-row'
 
-export default function CollectionTable({
+export default function CardDisplayTable({
   data,
+  type,
 }: {
   data: ResponseCardInCollection[] | null
+  type: "Collection" | "Pool"
 }) {
   if (!data) {
     return null
@@ -14,7 +17,7 @@ export default function CollectionTable({
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell>Number Owned</TableCell>
+            {type === "Collection" ? <TableCell>Number Owned</TableCell> : null}
           <TableCell>Name</TableCell>
           <TableCell>Types</TableCell>
           <TableCell>Colors</TableCell>
@@ -23,12 +26,7 @@ export default function CollectionTable({
 
       <TableBody>
         {data.map(card => (
-          <TableRow key={card.node.scryfall_id}>
-            <TableCell>{card.number_owned}</TableCell>
-            <TableCell>{card.node.full_name}</TableCell>
-            <TableCell>{card.node.types}</TableCell>
-            <TableCell>{card.node.colors}</TableCell>
-          </TableRow>
+          <CardDisplayRow card={card} type={type} key={card.node.scryfall_id}/>
         ))}
       </TableBody>
     </Table>

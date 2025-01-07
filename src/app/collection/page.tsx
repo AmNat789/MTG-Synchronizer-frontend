@@ -1,8 +1,9 @@
 'use client'
 
-import CollectionTable from '@components/collection/collection-table'
 import ImportCards from '@components/collection/import-cards'
+import CardDisplayTable from '@components/mtg-card/card-display-table'
 import { MtgCard } from '@utils/backend/schemas'
+import Image from 'next/image'
 import useApiData from '@utils/backend/use-api-data'
 
 export interface ResponseCardInCollection {
@@ -20,7 +21,7 @@ export default function CollectionPage() {
   return (
     <div>
       <h2>Collection</h2>
-      <CollectionTable data={api.data['collection'] as ResponseCardInCollection[] | null} />
+      <CardDisplayTable data={api.data['collection'] as ResponseCardInCollection[] | null} type={"Collection"}/>
       <ImportCards api={api} />
     </div>
   )
