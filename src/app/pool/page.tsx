@@ -5,19 +5,17 @@ import PoolCard from '@components/pool/pool-card'
 import useApiData from '@utils/backend/use-api-data'
 
 export interface PoolNodeProps {
-    name: string
-    description: string
-    pool_id: number
+  name: string
+  description: string
+  pool_id: number
 }
 
 export default function PoolPage() {
   const api = useApiData({
-    initialRequests: [
-      { endpoint: '/pool', id: 'pool', method: 'GET' },
-    ],
+    initialRequests: [{ endpoint: '/pool', id: 'pool', method: 'GET' }],
   })
 
-  const pools = api.data['pool'] as {p:PoolNodeProps}[] | null
+  const pools = api.data['pool'] as { p: PoolNodeProps }[] | null
 
   if (!pools) {
     return <div>Loading...</div>
@@ -27,13 +25,8 @@ export default function PoolPage() {
     <div>
       <h2>Card Pools</h2>
 
-      {pools?.map(pool => (
-        <PoolCard 
-            pool={pool.p}
-            api={api}
-        />
-        ))}
-      
+      {pools?.map(pool => <PoolCard pool={pool.p} api={api} />)}
+
       <CreateCardPool api={api} />
     </div>
   )

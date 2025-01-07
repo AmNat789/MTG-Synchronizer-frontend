@@ -14,7 +14,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o0' ]
+    gatherer_alternates: ['o0'],
   },
   '1': {
     object: 'card_symbol',
@@ -31,7 +31,7 @@ const symbols = {
     cmc: 1,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o1' ]
+    gatherer_alternates: ['o1'],
   },
   '2': {
     object: 'card_symbol',
@@ -48,7 +48,7 @@ const symbols = {
     cmc: 2,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o2' ]
+    gatherer_alternates: ['o2'],
   },
   '3': {
     object: 'card_symbol',
@@ -65,7 +65,7 @@ const symbols = {
     cmc: 3,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o3' ]
+    gatherer_alternates: ['o3'],
   },
   '4': {
     object: 'card_symbol',
@@ -82,7 +82,7 @@ const symbols = {
     cmc: 4,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o4' ]
+    gatherer_alternates: ['o4'],
   },
   '5': {
     object: 'card_symbol',
@@ -99,7 +99,7 @@ const symbols = {
     cmc: 5,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o5' ]
+    gatherer_alternates: ['o5'],
   },
   '6': {
     object: 'card_symbol',
@@ -116,7 +116,7 @@ const symbols = {
     cmc: 6,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o6' ]
+    gatherer_alternates: ['o6'],
   },
   '7': {
     object: 'card_symbol',
@@ -133,7 +133,7 @@ const symbols = {
     cmc: 7,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o7' ]
+    gatherer_alternates: ['o7'],
   },
   '8': {
     object: 'card_symbol',
@@ -150,7 +150,7 @@ const symbols = {
     cmc: 8,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o8' ]
+    gatherer_alternates: ['o8'],
   },
   '9': {
     object: 'card_symbol',
@@ -167,7 +167,7 @@ const symbols = {
     cmc: 9,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o9' ]
+    gatherer_alternates: ['o9'],
   },
   '10': {
     object: 'card_symbol',
@@ -184,7 +184,7 @@ const symbols = {
     cmc: 10,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o10' ]
+    gatherer_alternates: ['o10'],
   },
   '11': {
     object: 'card_symbol',
@@ -201,7 +201,7 @@ const symbols = {
     cmc: 11,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o11' ]
+    gatherer_alternates: ['o11'],
   },
   '12': {
     object: 'card_symbol',
@@ -218,7 +218,7 @@ const symbols = {
     cmc: 12,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o12' ]
+    gatherer_alternates: ['o12'],
   },
   '13': {
     object: 'card_symbol',
@@ -235,7 +235,7 @@ const symbols = {
     cmc: 13,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o13' ]
+    gatherer_alternates: ['o13'],
   },
   '14': {
     object: 'card_symbol',
@@ -252,7 +252,7 @@ const symbols = {
     cmc: 14,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o14' ]
+    gatherer_alternates: ['o14'],
   },
   '15': {
     object: 'card_symbol',
@@ -269,7 +269,7 @@ const symbols = {
     cmc: 15,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o15' ]
+    gatherer_alternates: ['o15'],
   },
   '16': {
     object: 'card_symbol',
@@ -286,7 +286,7 @@ const symbols = {
     cmc: 16,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o16' ]
+    gatherer_alternates: ['o16'],
   },
   '17': {
     object: 'card_symbol',
@@ -303,7 +303,7 @@ const symbols = {
     cmc: 17,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o17' ]
+    gatherer_alternates: ['o17'],
   },
   '18': {
     object: 'card_symbol',
@@ -320,7 +320,7 @@ const symbols = {
     cmc: 18,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o18' ]
+    gatherer_alternates: ['o18'],
   },
   '19': {
     object: 'card_symbol',
@@ -337,7 +337,7 @@ const symbols = {
     cmc: 19,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o19' ]
+    gatherer_alternates: ['o19'],
   },
   '20': {
     object: 'card_symbol',
@@ -354,7 +354,7 @@ const symbols = {
     cmc: 20,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'o20' ]
+    gatherer_alternates: ['o20'],
   },
   '100': {
     object: 'card_symbol',
@@ -371,7 +371,7 @@ const symbols = {
     cmc: 100,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   '1000000': {
     object: 'card_symbol',
@@ -388,7 +388,7 @@ const symbols = {
     cmc: 1000000,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   T: {
     object: 'card_symbol',
@@ -405,7 +405,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'ocT', 'oT' ]
+    gatherer_alternates: ['ocT', 'oT'],
   },
   Q: {
     object: 'card_symbol',
@@ -422,7 +422,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   E: {
     object: 'card_symbol',
@@ -439,7 +439,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   P: {
     object: 'card_symbol',
@@ -456,7 +456,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   PW: {
     object: 'card_symbol',
@@ -473,7 +473,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   CHAOS: {
     object: 'card_symbol',
@@ -490,7 +490,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   A: {
     object: 'card_symbol',
@@ -507,7 +507,7 @@ const symbols = {
     cmc: 0,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   TK: {
     object: 'card_symbol',
@@ -524,7 +524,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   X: {
     object: 'card_symbol',
@@ -541,7 +541,7 @@ const symbols = {
     cmc: 0,
     funny: false,
     colors: [],
-    gatherer_alternates: [ 'oX', 'ooX' ]
+    gatherer_alternates: ['oX', 'ooX'],
   },
   Y: {
     object: 'card_symbol',
@@ -558,7 +558,7 @@ const symbols = {
     cmc: 0,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   Z: {
     object: 'card_symbol',
@@ -575,7 +575,7 @@ const symbols = {
     cmc: 0,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   '½': {
     object: 'card_symbol',
@@ -592,7 +592,7 @@ const symbols = {
     cmc: 0.5,
     funny: true,
     colors: [],
-    gatherer_alternates: [ 'o½' ]
+    gatherer_alternates: ['o½'],
   },
   '∞': {
     object: 'card_symbol',
@@ -609,7 +609,7 @@ const symbols = {
     cmc: null,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   'W/U': {
     object: 'card_symbol',
@@ -625,8 +625,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'U' ],
-    gatherer_alternates: null
+    colors: ['W', 'U'],
+    gatherer_alternates: null,
   },
   'W/B': {
     object: 'card_symbol',
@@ -642,8 +642,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'B' ],
-    gatherer_alternates: null
+    colors: ['W', 'B'],
+    gatherer_alternates: null,
   },
   'B/R': {
     object: 'card_symbol',
@@ -659,8 +659,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'B', 'R' ],
-    gatherer_alternates: null
+    colors: ['B', 'R'],
+    gatherer_alternates: null,
   },
   'B/G': {
     object: 'card_symbol',
@@ -676,8 +676,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'B', 'G' ],
-    gatherer_alternates: null
+    colors: ['B', 'G'],
+    gatherer_alternates: null,
   },
   'U/B': {
     object: 'card_symbol',
@@ -693,8 +693,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'U', 'B' ],
-    gatherer_alternates: null
+    colors: ['U', 'B'],
+    gatherer_alternates: null,
   },
   'U/R': {
     object: 'card_symbol',
@@ -710,8 +710,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'U', 'R' ],
-    gatherer_alternates: null
+    colors: ['U', 'R'],
+    gatherer_alternates: null,
   },
   'R/G': {
     object: 'card_symbol',
@@ -727,8 +727,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'R', 'G' ],
-    gatherer_alternates: null
+    colors: ['R', 'G'],
+    gatherer_alternates: null,
   },
   'R/W': {
     object: 'card_symbol',
@@ -744,8 +744,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'R' ],
-    gatherer_alternates: null
+    colors: ['W', 'R'],
+    gatherer_alternates: null,
   },
   'G/W': {
     object: 'card_symbol',
@@ -761,8 +761,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'G' ],
-    gatherer_alternates: null
+    colors: ['W', 'G'],
+    gatherer_alternates: null,
   },
   'G/U': {
     object: 'card_symbol',
@@ -778,8 +778,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'U', 'G' ],
-    gatherer_alternates: null
+    colors: ['U', 'G'],
+    gatherer_alternates: null,
   },
   'B/G/P': {
     object: 'card_symbol',
@@ -795,8 +795,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'B', 'G' ],
-    gatherer_alternates: null
+    colors: ['B', 'G'],
+    gatherer_alternates: null,
   },
   'B/R/P': {
     object: 'card_symbol',
@@ -812,8 +812,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'B', 'R' ],
-    gatherer_alternates: null
+    colors: ['B', 'R'],
+    gatherer_alternates: null,
   },
   'G/U/P': {
     object: 'card_symbol',
@@ -829,8 +829,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'U', 'G' ],
-    gatherer_alternates: null
+    colors: ['U', 'G'],
+    gatherer_alternates: null,
   },
   'G/W/P': {
     object: 'card_symbol',
@@ -846,8 +846,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'G' ],
-    gatherer_alternates: null
+    colors: ['W', 'G'],
+    gatherer_alternates: null,
   },
   'R/G/P': {
     object: 'card_symbol',
@@ -863,8 +863,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'R', 'G' ],
-    gatherer_alternates: null
+    colors: ['R', 'G'],
+    gatherer_alternates: null,
   },
   'R/W/P': {
     object: 'card_symbol',
@@ -880,8 +880,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'R' ],
-    gatherer_alternates: null
+    colors: ['W', 'R'],
+    gatherer_alternates: null,
   },
   'U/B/P': {
     object: 'card_symbol',
@@ -897,8 +897,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'U', 'B' ],
-    gatherer_alternates: null
+    colors: ['U', 'B'],
+    gatherer_alternates: null,
   },
   'U/R/P': {
     object: 'card_symbol',
@@ -914,8 +914,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'U', 'R' ],
-    gatherer_alternates: null
+    colors: ['U', 'R'],
+    gatherer_alternates: null,
   },
   'W/B/P': {
     object: 'card_symbol',
@@ -931,8 +931,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'B' ],
-    gatherer_alternates: null
+    colors: ['W', 'B'],
+    gatherer_alternates: null,
   },
   'W/U/P': {
     object: 'card_symbol',
@@ -948,8 +948,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'W', 'U' ],
-    gatherer_alternates: null
+    colors: ['W', 'U'],
+    gatherer_alternates: null,
   },
   'C/W': {
     object: 'card_symbol',
@@ -965,8 +965,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'W' ],
-    gatherer_alternates: null
+    colors: ['W'],
+    gatherer_alternates: null,
   },
   'C/U': {
     object: 'card_symbol',
@@ -982,8 +982,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'U' ],
-    gatherer_alternates: null
+    colors: ['U'],
+    gatherer_alternates: null,
   },
   'C/B': {
     object: 'card_symbol',
@@ -999,8 +999,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'B' ],
-    gatherer_alternates: null
+    colors: ['B'],
+    gatherer_alternates: null,
   },
   'C/R': {
     object: 'card_symbol',
@@ -1016,8 +1016,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'R' ],
-    gatherer_alternates: null
+    colors: ['R'],
+    gatherer_alternates: null,
   },
   'C/G': {
     object: 'card_symbol',
@@ -1033,8 +1033,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'G' ],
-    gatherer_alternates: null
+    colors: ['G'],
+    gatherer_alternates: null,
   },
   '2/W': {
     object: 'card_symbol',
@@ -1050,8 +1050,8 @@ const symbols = {
     phyrexian: false,
     cmc: 2,
     funny: false,
-    colors: [ 'W' ],
-    gatherer_alternates: null
+    colors: ['W'],
+    gatherer_alternates: null,
   },
   '2/U': {
     object: 'card_symbol',
@@ -1067,8 +1067,8 @@ const symbols = {
     phyrexian: false,
     cmc: 2,
     funny: false,
-    colors: [ 'U' ],
-    gatherer_alternates: null
+    colors: ['U'],
+    gatherer_alternates: null,
   },
   '2/B': {
     object: 'card_symbol',
@@ -1084,8 +1084,8 @@ const symbols = {
     phyrexian: false,
     cmc: 2,
     funny: false,
-    colors: [ 'B' ],
-    gatherer_alternates: null
+    colors: ['B'],
+    gatherer_alternates: null,
   },
   '2/R': {
     object: 'card_symbol',
@@ -1101,8 +1101,8 @@ const symbols = {
     phyrexian: false,
     cmc: 2,
     funny: false,
-    colors: [ 'R' ],
-    gatherer_alternates: null
+    colors: ['R'],
+    gatherer_alternates: null,
   },
   '2/G': {
     object: 'card_symbol',
@@ -1118,8 +1118,8 @@ const symbols = {
     phyrexian: false,
     cmc: 2,
     funny: false,
-    colors: [ 'G' ],
-    gatherer_alternates: null
+    colors: ['G'],
+    gatherer_alternates: null,
   },
   H: {
     object: 'card_symbol',
@@ -1136,7 +1136,7 @@ const symbols = {
     cmc: 1,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   'W/P': {
     object: 'card_symbol',
@@ -1152,8 +1152,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'W' ],
-    gatherer_alternates: null
+    colors: ['W'],
+    gatherer_alternates: null,
   },
   'U/P': {
     object: 'card_symbol',
@@ -1169,8 +1169,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'U' ],
-    gatherer_alternates: null
+    colors: ['U'],
+    gatherer_alternates: null,
   },
   'B/P': {
     object: 'card_symbol',
@@ -1186,8 +1186,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'B' ],
-    gatherer_alternates: null
+    colors: ['B'],
+    gatherer_alternates: null,
   },
   'R/P': {
     object: 'card_symbol',
@@ -1203,8 +1203,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'R' ],
-    gatherer_alternates: null
+    colors: ['R'],
+    gatherer_alternates: null,
   },
   'G/P': {
     object: 'card_symbol',
@@ -1220,8 +1220,8 @@ const symbols = {
     phyrexian: true,
     cmc: 1,
     funny: false,
-    colors: [ 'G' ],
-    gatherer_alternates: null
+    colors: ['G'],
+    gatherer_alternates: null,
   },
   'C/P': {
     object: 'card_symbol',
@@ -1238,7 +1238,7 @@ const symbols = {
     cmc: 1,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   HW: {
     object: 'card_symbol',
@@ -1254,8 +1254,8 @@ const symbols = {
     phyrexian: false,
     cmc: 0.5,
     funny: true,
-    colors: [ 'W' ],
-    gatherer_alternates: null
+    colors: ['W'],
+    gatherer_alternates: null,
   },
   HR: {
     object: 'card_symbol',
@@ -1271,8 +1271,8 @@ const symbols = {
     phyrexian: false,
     cmc: 0.5,
     funny: true,
-    colors: [ 'R' ],
-    gatherer_alternates: null
+    colors: ['R'],
+    gatherer_alternates: null,
   },
   W: {
     object: 'card_symbol',
@@ -1288,8 +1288,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'W' ],
-    gatherer_alternates: [ 'oW', 'ooW' ]
+    colors: ['W'],
+    gatherer_alternates: ['oW', 'ooW'],
   },
   U: {
     object: 'card_symbol',
@@ -1305,8 +1305,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'U' ],
-    gatherer_alternates: [ 'oU', 'ooU' ]
+    colors: ['U'],
+    gatherer_alternates: ['oU', 'ooU'],
   },
   B: {
     object: 'card_symbol',
@@ -1322,8 +1322,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'B' ],
-    gatherer_alternates: [ 'oB', 'ooB' ]
+    colors: ['B'],
+    gatherer_alternates: ['oB', 'ooB'],
   },
   R: {
     object: 'card_symbol',
@@ -1339,8 +1339,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'R' ],
-    gatherer_alternates: [ 'oR', 'ooR' ]
+    colors: ['R'],
+    gatherer_alternates: ['oR', 'ooR'],
   },
   G: {
     object: 'card_symbol',
@@ -1356,8 +1356,8 @@ const symbols = {
     phyrexian: false,
     cmc: 1,
     funny: false,
-    colors: [ 'G' ],
-    gatherer_alternates: [ 'oG', 'ooG' ]
+    colors: ['G'],
+    gatherer_alternates: ['oG', 'ooG'],
   },
   C: {
     object: 'card_symbol',
@@ -1374,7 +1374,7 @@ const symbols = {
     cmc: 1,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   S: {
     object: 'card_symbol',
@@ -1391,7 +1391,7 @@ const symbols = {
     cmc: 1,
     funny: false,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   L: {
     object: 'card_symbol',
@@ -1408,7 +1408,7 @@ const symbols = {
     cmc: 1,
     funny: true,
     colors: [],
-    gatherer_alternates: null
+    gatherer_alternates: null,
   },
   D: {
     object: 'card_symbol',
@@ -1425,8 +1425,8 @@ const symbols = {
     cmc: 0,
     funny: true,
     colors: [],
-    gatherer_alternates: null
-  }
+    gatherer_alternates: null,
+  },
 }
 
 export default symbols

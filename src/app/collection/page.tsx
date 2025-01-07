@@ -21,7 +21,11 @@ export default function CollectionPage() {
   return (
     <div>
       <h2>Collection</h2>
-      <CardDisplayTable data={api.data['collection'] as ResponseCardInCollection[] | null} type={"Collection"}/>
+      <CardDisplayTable
+        data={api.data['collection'] as ResponseCardInCollection[] | null}
+        type={'Collection'}
+        api={api}
+      />
       <ImportCards api={api} />
     </div>
   )
