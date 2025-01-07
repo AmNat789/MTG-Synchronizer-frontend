@@ -36,6 +36,7 @@ function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
 export default function CardDisplayRow(props: CardDisplayRowProps) {
   const { card, edit } = props
   const [hidden, setHidden] = useState(false)
+  const [showImg, setShowImg] = useState(false)
 
   if (!card) {
     return null
@@ -50,12 +51,25 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
   }
 
   return (
+    <>
+    {showImg ? (
+      <Image
+        src={card.node.img_uris_small[0]}
+        alt={card.node.full_name}
+        width={200}
+        height={280}
+        style={{ position: 'absolute', zIndex: 1 }}
+      />
+      ) : null}
     <TableRow
       key={card.node.scryfall_id}
       sx={{ display: hidden && edit ? 'none' : 'table-row' }}
     >
       <CardDisplayRowNumberOwned {...props} />
-      <TableCell>{card.node.full_name}</TableCell>
+      <TableCell
+        onMouseEnter={() => setShowImg(true)}
+        onMouseLeave={() => setShowImg(false)}
+      >{card.node.full_name}</TableCell>
       <TableCell>
         {card.node.types.map(type => (
           <Card key={`${card.node.scryfall_id}-${type}`}>{type}</Card>
@@ -72,11 +86,13 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
           />
         ))}
       </TableCell>
-      {edit ? (
+    </TableRow>
+
+    {edit ? (
         <Button variant="contained" color="error" onClick={handleDelete}>
           <DeleteIcon />
         </Button>
       ) : null}
-    </TableRow>
+    </>
   )
 }

@@ -3,7 +3,7 @@ import backendApiClient from '@utils/backend/api-client'
 import { useAuth } from '@utils/auth/auth-context'
 import { AxiosError, AxiosRequestConfig } from 'axios'
 
-interface ApiRequest {
+export interface ApiRequest {
   endpoint: string
   id: string
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'

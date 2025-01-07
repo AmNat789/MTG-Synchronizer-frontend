@@ -25,6 +25,11 @@ export default function CollectionPage() {
         data={api.data['collection'] as ResponseCardInCollection[] | null}
         type={'Collection'}
         api={api}
+        request_on_submit={{
+          endpoint: '/collection',
+          id: 'post-collection-table',
+          method: 'POST',
+        }}
       />
       <ImportCards api={api} />
     </div>

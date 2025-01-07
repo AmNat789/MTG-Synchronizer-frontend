@@ -11,16 +11,18 @@ import { ResponseCardInCollection } from 'app/collection/page'
 import CardDisplayRow from './card-display-row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
-import { UseApiDataReturn } from '@utils/backend/use-api-data'
+import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
 
 export default function CardDisplayTable({
   data,
   type,
   api,
+  request_on_submit,
 }: {
   data: ResponseCardInCollection[] | null
   type: 'Collection' | 'Pool'
   api: UseApiDataReturn<any>
+  request_on_submit: ApiRequest
 }) {
   const [edit, setEdit] = useState(false)
 
@@ -59,13 +61,11 @@ export default function CardDisplayTable({
 
     const formData = getFormData(e)
 
-    console.log(formData)
-
     await api
       .triggerRequest({
-        endpoint: '/collection',
-        id: 'post-collection',
-        method: 'POST',
+        endpoint: request_on_submit.endpoint,
+        id: request_on_submit.id,
+        method: request_on_submit.method,
         body: formData,
       })
       .then(() => {
