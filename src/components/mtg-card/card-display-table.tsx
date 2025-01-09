@@ -4,7 +4,6 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Card,
   Button,
 } from '@mui/material'
 import { ResponseCardInCollection } from 'app/collection/page'

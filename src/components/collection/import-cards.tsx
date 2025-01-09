@@ -83,7 +83,7 @@ export default function ImportCards({ api }: { api: UseApiDataReturn<any> }) {
       })
 
       return result
-    } catch (err: any) {
+    } catch {
       setError(true)
       setHelperText(
         <>

@@ -15,7 +15,10 @@ backendApiClient.interceptors.request.use(
     if (!isInitialized) {
       isInitialized = true
       await new Promise(resolve => {
-        const unsubscribe = getAuth().onAuthStateChanged(user => {
+        // const unsubscribe = getAuth().onAuthStateChanged(user => {
+        //   if (user) resolve(user)
+        // })
+        getAuth().onAuthStateChanged(user => {
           if (user) resolve(user)
         })
       })
