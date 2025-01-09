@@ -4,7 +4,7 @@ import { getAuth, User } from 'firebase/auth'
 let isInitialized = false // To prevent redundant initialization
 
 const backendApiClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL, // Replace with your backend URL
+  baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
 })
 
 backendApiClient.interceptors.request.use(
