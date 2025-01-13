@@ -5,6 +5,10 @@ let isInitialized = false // To prevent redundant initialization
 
 const backendApiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  withCredentials: true
 })
 
 backendApiClient.interceptors.request.use(
