@@ -26,13 +26,15 @@ export default function CollectionPage() {
           method: 'POST',
         }}
       />
-      <ImportCards api={api} 
-      existing_data_id={'collection'}
-      request_on_submit={{
-        endpoint: '/collection',
-        id: 'post-collection',
-        method: 'POST',
-      }} />
+      <ImportCards
+        api={api}
+        existing_data_id={'collection'}
+        request_on_submit={{
+          endpoint: '/collection',
+          id: 'post-collection',
+          method: 'POST',
+        }}
+      />
     </div>
   )
 }

@@ -37,10 +37,12 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
             <Card key={`${card.node.scryfall_id}-${type}`}>{type}</Card>
           ))}
         </TableCell>
-        <CardDisplayRowColors card={card}/>
+        <CardDisplayRowColors card={card} />
       </TableRow>
 
-      {edit ? <CardDisplayDeleteButton card={card} setHidden={setHidden}/> : null}
+      {edit ? (
+        <CardDisplayDeleteButton card={card} setHidden={setHidden} />
+      ) : null}
     </>
   )
 }

@@ -1,5 +1,5 @@
-import { TableCell } from "@mui/material"
-import { CardDisplayRowProps } from "@components/mtg-card/card-display/row"
+import { TableCell } from '@mui/material'
+import { CardDisplayRowProps } from '@components/mtg-card/card-display/row'
 
 export default function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
   const { card, type, edit } = props

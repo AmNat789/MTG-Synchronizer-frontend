@@ -30,13 +30,15 @@ export default function PoolPage() {
           method: 'POST',
         }}
       />
-      <ImportCards api={api} 
-      existing_data_id={'pool'}
-      request_on_submit={{
-        endpoint: `/pool/${poolId}/cards`,
-        id: 'post-pool',
-        method: 'POST',
-      }} />
+      <ImportCards
+        api={api}
+        existing_data_id={'pool'}
+        request_on_submit={{
+          endpoint: `/pool/${poolId}/cards`,
+          id: 'post-pool',
+          method: 'POST',
+        }}
+      />
     </div>
   )
 }

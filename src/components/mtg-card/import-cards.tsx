@@ -8,8 +8,8 @@ interface ImportCardsProps {
   request_on_submit: ApiRequest
 }
 
-export default function ImportCards({ 
-  api, 
+export default function ImportCards({
+  api,
   existing_data_id,
   request_on_submit,
 }: ImportCardsProps) {
