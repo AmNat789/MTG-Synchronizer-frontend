@@ -83,6 +83,7 @@ export default function CardDisplayTable({
               Number Owned
             </TableCell>
             <TableCell>Name</TableCell>
+            <TableCell>Oracel Text</TableCell>
             <TableCell>Types</TableCell>
             <TableCell>Colors</TableCell>
             <Button variant="contained" onClick={() => setEdit(!edit)}>

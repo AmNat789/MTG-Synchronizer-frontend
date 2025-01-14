@@ -4,6 +4,8 @@ export interface MtgCard {
   name_front: string
   name_back?: string
 
+  oracle_texts: string[]
+
   total_recurrences?: number
 
   types: string[]
