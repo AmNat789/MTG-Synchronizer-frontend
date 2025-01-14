@@ -1,6 +1,6 @@
 'use client'
 
-import ImportCards from '@components/collection/import-cards'
+import ImportCards from '@components/mtg-card/import-cards'
 import CardDisplayTable from '@components/mtg-card/card-display-table'
 import { ResponseCardInCollection } from '@utils/backend/schemas'
 import useApiData from '@utils/backend/use-api-data'
@@ -25,7 +25,13 @@ export default function CollectionPage() {
           method: 'POST',
         }}
       />
-      <ImportCards api={api} />
+      <ImportCards api={api} 
+      existing_data_id={'collection'}
+      request_on_submit={{
+        endpoint: '/collection',
+        id: 'post-collection',
+        method: 'POST',
+      }} />
     </div>
   )
 }

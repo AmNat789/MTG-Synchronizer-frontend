@@ -1,48 +1,60 @@
 import { Button, TextField } from '@mui/material'
-import { UseApiDataReturn } from '@utils/backend/use-api-data'
+import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
 import { useState, useEffect } from 'react'
 
-export default function ImportCards({ api }: { api: UseApiDataReturn<any> }) {
+interface ImportCardsProps {
+  api: UseApiDataReturn<any>
+  existing_data_id: string
+  request_on_submit: ApiRequest
+}
+
+export default function ImportCards({ 
+  api, 
+  existing_data_id,
+  request_on_submit,
+}: ImportCardsProps) {
   const [text, setText] = useState('')
   const [error, setError] = useState(false)
   const [update, setUpdate] = useState(false)
   const [helperText, setHelperText] = useState(<></>)
 
+  const id = request_on_submit.id
+
   useEffect(() => {
     const update_data = () => {
-      const collectionData = api.data['collection']
-        ? [...api.data['collection']]
+      const data = api.data[existing_data_id]
+        ? [...api.data[existing_data_id]]
         : []
-      const newData = api.data['post-collection'] || []
+      const newData = api.data[id] || []
 
       for (const card of newData) {
-        const index = collectionData.findIndex(
+        const index = data.findIndex(
           old_card => old_card.node.scryfall_id === card.node.scryfall_id
         )
         if (index !== -1) {
-          collectionData[index] = {
-            ...collectionData[index],
+          data[index] = {
+            ...data[index],
             number_owned: card.number_owned,
           }
         } else {
-          collectionData.push(card)
+          data.push(card)
         }
       }
 
       api.setData(prev => ({
         ...prev,
-        collection: collectionData,
+        [existing_data_id]: data,
       }))
     }
 
-    if (api.data['post-collection'] && update) {
+    if (api.data[id] && update) {
       update_data()
       setUpdate(false)
     }
   }, [api.data, update])
 
   useEffect(() => {
-    const err = api.error['post-collection']
+    const err = api.error[id]
     if (err) {
       if (err.response?.status === 404) {
         setError(true)
@@ -103,9 +115,9 @@ export default function ImportCards({ api }: { api: UseApiDataReturn<any> }) {
 
     if (cards) {
       await api.triggerRequest({
-        endpoint: '/collection',
-        id: 'post-collection',
-        method: 'POST',
+        endpoint: request_on_submit.endpoint,
+        id: request_on_submit.id,
+        method: request_on_submit.method,
         body: cards,
       })
 

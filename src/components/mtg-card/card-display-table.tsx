@@ -110,13 +110,13 @@ export default function CardDisplayTable({
           ))}
         </TableBody>
       </Table>
-      {/* <Button
+      <Button
         onClick={() => {
           console.log(api)
         }}
       >
         click me
-      </Button> */}
+      </Button>
     </form>
   )
 }

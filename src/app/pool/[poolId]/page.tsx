@@ -3,6 +3,7 @@ import CardDisplayTable from '@components/mtg-card/card-display-table'
 import useApiData from '@utils/backend/use-api-data'
 import { ResponseCardInCollection } from '@utils/backend/schemas'
 import { useParams } from 'next/navigation'
+import ImportCards from '@components/mtg-card/import-cards'
 
 export default function PoolPage() {
   const params = useParams()
@@ -29,6 +30,13 @@ export default function PoolPage() {
           method: 'POST',
         }}
       />
+      <ImportCards api={api} 
+      existing_data_id={'pool'}
+      request_on_submit={{
+        endpoint: `/pool/${poolId}/cards`,
+        id: 'post-pool',
+        method: 'POST',
+      }} />
     </div>
   )
 }
