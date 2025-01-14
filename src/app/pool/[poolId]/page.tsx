@@ -1,5 +1,5 @@
 'use client'
-import CardDisplayTable from '@components/mtg-card/card-display-table'
+import CardDisplayTable from '@components/mtg-card/card-display/table'
 import useApiData from '@utils/backend/use-api-data'
 import { ResponseCardInCollection } from '@utils/backend/schemas'
 import { useParams } from 'next/navigation'

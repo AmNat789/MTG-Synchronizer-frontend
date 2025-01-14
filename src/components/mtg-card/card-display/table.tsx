@@ -7,22 +7,27 @@ import {
   Button,
 } from '@mui/material'
 import { ResponseCardInCollection } from '@utils/backend/schemas'
-import CardDisplayRow from './card-display-row'
+import CardDisplayRow from './row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
 import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
+import { ppid } from 'process'
 
-export default function CardDisplayTable({
-  data,
-  type,
-  api,
-  request_on_submit,
-}: {
+interface CardDisplayTableProps {
   data: ResponseCardInCollection[] | null
+  pools?: ResponseCardInCollection[]
   type: 'Collection' | 'Pool'
   api: UseApiDataReturn<any>
   request_on_submit: ApiRequest
-}) {
+}
+
+export default function CardDisplayTable({
+  data,
+  pools = [],
+  type,
+  api,
+  request_on_submit,
+}: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
 
   if (!data) {
@@ -107,6 +112,7 @@ export default function CardDisplayTable({
               type={type}
               key={card.node.scryfall_id}
               edit={edit}
+              pools={pools}
             />
           ))}
         </TableBody>

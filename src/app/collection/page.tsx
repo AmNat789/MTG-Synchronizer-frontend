@@ -1,7 +1,7 @@
 'use client'
 
 import ImportCards from '@components/mtg-card/import-cards'
-import CardDisplayTable from '@components/mtg-card/card-display-table'
+import CardDisplayTable from '@components/mtg-card/card-display/table'
 import { ResponseCardInCollection } from '@utils/backend/schemas'
 import useApiData from '@utils/backend/use-api-data'
 
@@ -9,6 +9,7 @@ export default function CollectionPage() {
   const api = useApiData({
     initialRequests: [
       { endpoint: '/collection', id: 'collection', method: 'GET' },
+      { endpoint: '/pool', id: 'collection-pool', method: 'GET' },
     ],
   })
 
