@@ -1,7 +1,7 @@
 import { TableCell, TableRow, Card, Button } from '@mui/material'
 import Image from 'next/image'
 import symbology from '@utils/mtg-card/symbology'
-import { ResponseCardInCollection } from 'app/collection/page'
+import { ResponseCardInCollection } from '@utils/backend/schemas'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { useState } from 'react'
 
@@ -13,13 +13,15 @@ interface CardDisplayRowProps {
 
 function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
   const { card, type, edit } = props
-  if (!card || type !== 'Collection') {
+  if (!card) {
     return null
   }
 
+  const display = type == 'Collection' ? 'table-cell' : 'none'
+
   if (edit) {
     return (
-      <TableCell>
+      <TableCell style={{ display: display }}>
         <input
           id={card.node.scryfall_id}
           name={card.node.scryfall_id}
@@ -30,7 +32,7 @@ function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
     )
   }
 
-  return <TableCell>{card.number_owned}</TableCell>
+  return <TableCell style={{ display: display }}>{card.number_owned}</TableCell>
 }
 
 export default function CardDisplayRow(props: CardDisplayRowProps) {
@@ -52,43 +54,45 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
 
   return (
     <>
-    {showImg ? (
-      <Image
-        src={card.node.img_uris_small[0]}
-        alt={card.node.full_name}
-        width={200}
-        height={280}
-        style={{ position: 'absolute', zIndex: 1 }}
-      />
+      {showImg ? (
+        <Image
+          src={card.node.img_uris_small[0]}
+          alt={card.node.full_name}
+          width={200}
+          height={280}
+          style={{ position: 'absolute', zIndex: 1 }}
+        />
       ) : null}
-    <TableRow
-      key={card.node.scryfall_id}
-      sx={{ display: hidden && edit ? 'none' : 'table-row' }}
-    >
-      <CardDisplayRowNumberOwned {...props} />
-      <TableCell
-        onMouseEnter={() => setShowImg(true)}
-        onMouseLeave={() => setShowImg(false)}
-      >{card.node.full_name}</TableCell>
-      <TableCell>
-        {card.node.types.map(type => (
-          <Card key={`${card.node.scryfall_id}-${type}`}>{type}</Card>
-        ))}
-      </TableCell>
-      <TableCell>
-        {card.node.colors.map(color => (
-          <Image
-            key={`${card.node.scryfall_id}-${color}`}
-            src={symbology[color as keyof typeof symbology].svg_uri}
-            alt={color}
-            width={20}
-            height={20}
-          />
-        ))}
-      </TableCell>
-    </TableRow>
+      <TableRow
+        key={card.node.scryfall_id}
+        sx={{ display: hidden && edit ? 'none' : 'table-row' }}
+      >
+        <CardDisplayRowNumberOwned {...props} />
+        <TableCell
+          onMouseEnter={() => setShowImg(true)}
+          onMouseLeave={() => setShowImg(false)}
+        >
+          {card.node.full_name}
+        </TableCell>
+        <TableCell>
+          {card.node.types.map(type => (
+            <Card key={`${card.node.scryfall_id}-${type}`}>{type}</Card>
+          ))}
+        </TableCell>
+        <TableCell>
+          {card.node.colors.map(color => (
+            <Image
+              key={`${card.node.scryfall_id}-${color}`}
+              src={symbology[color as keyof typeof symbology].svg_uri}
+              alt={color}
+              width={20}
+              height={20}
+            />
+          ))}
+        </TableCell>
+      </TableRow>
 
-    {edit ? (
+      {edit ? (
         <Button variant="contained" color="error" onClick={handleDelete}>
           <DeleteIcon />
         </Button>

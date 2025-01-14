@@ -6,7 +6,7 @@ import {
   TableBody,
   Button,
 } from '@mui/material'
-import { ResponseCardInCollection } from 'app/collection/page'
+import { ResponseCardInCollection } from '@utils/backend/schemas'
 import CardDisplayRow from './card-display-row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
@@ -77,7 +77,11 @@ export default function CardDisplayTable({
       <Table>
         <TableHead>
           <TableRow>
-            {type === 'Collection' ? <TableCell>Number Owned</TableCell> : null}
+            <TableCell
+              style={{ display: type == 'Collection' ? 'table-cell' : 'none' }}
+            >
+              Number Owned
+            </TableCell>
             <TableCell>Name</TableCell>
             <TableCell>Types</TableCell>
             <TableCell>Colors</TableCell>
@@ -106,13 +110,13 @@ export default function CardDisplayTable({
           ))}
         </TableBody>
       </Table>
-      <Button
+      {/* <Button
         onClick={() => {
           console.log(api)
         }}
       >
         click me
-      </Button>
+      </Button> */}
     </form>
   )
 }

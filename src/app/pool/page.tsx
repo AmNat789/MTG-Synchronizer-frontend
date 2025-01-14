@@ -25,7 +25,9 @@ export default function PoolPage() {
     <div>
       <h2>Card Pools</h2>
 
-      {pools?.map(pool => <PoolCard pool={pool.p} api={api} key={pool.p.pool_id}/>)}
+      {pools?.map(pool => (
+        <PoolCard pool={pool.p} api={api} key={pool.p.pool_id} />
+      ))}
 
       <CreateCardPool api={api} />
     </div>

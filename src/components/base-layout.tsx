@@ -19,7 +19,7 @@ export default function BaseLayout({
     return <Login />
   }
 
-  // console.log(user)
+  console.log(user)
 
   return (
     <>
