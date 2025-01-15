@@ -43,3 +43,8 @@ export interface MtgCard {
   legality_oldschool?: string
   legality_premodern?: string
 }
+
+export interface ResponseCardInCollection {
+  node: MtgCard
+  number_owned: number
+}

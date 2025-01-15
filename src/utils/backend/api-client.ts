@@ -8,7 +8,7 @@ const backendApiClient = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true
+  withCredentials: true,
 })
 
 backendApiClient.interceptors.request.use(
