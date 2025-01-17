@@ -40,15 +40,19 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
           ))}
         </TableCell>
         <CardDisplayRowColors card={card} />
+
+        <TableCell>
+          {edit ? (
+            <CardDisplayDeleteButton card={card} setHidden={setHidden} />
+          ) : null}
+
+          {pools && type == 'Collection' && !edit ? (
+            <CardDisplayAddToPool card={card} pools={pools} api={api}/>
+          ) : null}
+        </TableCell>
       </TableRow>
 
-      {edit ? (
-        <CardDisplayDeleteButton card={card} setHidden={setHidden} />
-      ) : null}
-
-      {type == 'Collection' && !edit ? (
-        <CardDisplayAddToPool card={card} pools={pools} api={api}/>
-      ) : null}
+      
       
     </>
   )

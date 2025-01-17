@@ -93,17 +93,19 @@ export default function CardDisplayTable({
             <TableCell>Oracel Text</TableCell>
             <TableCell>Types</TableCell>
             <TableCell>Colors</TableCell>
-            <Button variant="contained" onClick={() => setEdit(!edit)}>
-              <EditIcon />
-            </Button>
-            <Button
-              disabled={!edit}
-              variant="contained"
-              color="success"
-              type="submit"
-            >
-              Save
-            </Button>
+            <TableCell>
+              <Button variant="contained" onClick={() => setEdit(!edit)}>
+                <EditIcon />
+              </Button>
+              <Button
+                disabled={!edit}
+                variant="contained"
+                color="success"
+                type="submit"
+              >
+                Save
+              </Button>
+            </TableCell>
           </TableRow>
         </TableHead>
 
