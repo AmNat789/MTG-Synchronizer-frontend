@@ -6,19 +6,24 @@ import {
   TableBody,
   Button,
 } from '@mui/material'
-import { ResponseCardInCollection } from '@utils/backend/schemas'
+import { GetPool, ResponseCardInCollection } from '@utils/backend/schemas'
 import CardDisplayRow from './row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
 import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
-import { ppid } from 'process'
 
 interface CardDisplayTableProps {
   data: ResponseCardInCollection[] | null
-  pools?: ResponseCardInCollection[]
+  pools?: GetPool[]
   type: 'Collection' | 'Pool'
   api: UseApiDataReturn<any>
   request_on_submit: ApiRequest
+  transformFormData?: (formData: FormDataEntry[]) => any
+}
+
+export interface FormDataEntry {
+  scryfall_id: string
+  number_owned: number
 }
 
 export default function CardDisplayTable({
@@ -27,6 +32,7 @@ export default function CardDisplayTable({
   type,
   api,
   request_on_submit,
+  transformFormData = (d) => d,
 }: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
 
@@ -37,11 +43,6 @@ export default function CardDisplayTable({
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    interface FormDataEntry {
-      scryfall_id: string
-      number_owned: number
-    }
-
     function getFormData(event: Event): FormDataEntry[] {
       const formElements = (event.target as HTMLFormElement).elements
       const formData: FormDataEntry[] = []
@@ -50,11 +51,11 @@ export default function CardDisplayTable({
         const inputElement = element as HTMLInputElement
 
         if (
-          inputElement.id &&
+          inputElement.name &&
           inputElement.defaultValue !== inputElement.value
         ) {
           formData.push({
-            scryfall_id: inputElement.id,
+            scryfall_id: inputElement.name,
             number_owned: Number(inputElement.value),
           })
         }
@@ -64,13 +65,14 @@ export default function CardDisplayTable({
     }
 
     const formData = getFormData(e)
-
+    const formattedFormData = transformFormData(formData)
+    
     await api
       .triggerRequest({
         endpoint: request_on_submit.endpoint,
         id: request_on_submit.id,
         method: request_on_submit.method,
-        body: formData,
+        body: formattedFormData,
       })
       .then(() => {
         window.location.reload()
@@ -113,6 +115,7 @@ export default function CardDisplayTable({
               key={card.node.scryfall_id}
               edit={edit}
               pools={pools}
+              api={api}
             />
           ))}
         </TableBody>

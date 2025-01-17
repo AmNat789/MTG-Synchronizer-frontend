@@ -8,14 +8,13 @@ export default function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
   }
 
   const display = type == 'Collection' ? 'table-cell' : 'none'
-  const name = `${card.node.scryfall_id}-number-owned`
 
   if (edit) {
     return (
       <TableCell style={{ display: display }}>
         <input
-          id={name}
-          name={name}
+          id={`${card.node.scryfall_id}-number-owned`}
+          name={card.node.scryfall_id}
           type="number"
           defaultValue={card.number_owned}
         />

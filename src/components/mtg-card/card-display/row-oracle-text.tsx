@@ -8,7 +8,6 @@ export default function CardDisplayRowOracleText({
 }: {
   card: ResponseCardInCollection
 }) {
-  console.log(card)
   return (
     <TableCell>
       {card.node.oracle_texts.map(text => (

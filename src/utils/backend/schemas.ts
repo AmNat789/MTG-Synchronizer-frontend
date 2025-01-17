@@ -46,7 +46,20 @@ export interface MtgCard {
   legality_premodern?: string
 }
 
-export interface ResponseCardInCollection {
+export interface ResponseCardNode {
   node: MtgCard
+}
+
+export interface ResponseCardInCollection extends ResponseCardNode {
   number_owned: number
+}
+
+interface GetPoolProps {
+  name: string
+  description: string
+  pool_id: number
+}
+
+export interface GetPool {
+  p: GetPoolProps
 }

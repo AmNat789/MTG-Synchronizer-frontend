@@ -1,5 +1,5 @@
 'use client'
-import CardDisplayTable from '@components/mtg-card/card-display/table'
+import CardDisplayTable, { FormDataEntry } from '@components/mtg-card/card-display/table'
 import useApiData from '@utils/backend/use-api-data'
 import { ResponseCardInCollection } from '@utils/backend/schemas'
 import { useParams } from 'next/navigation'
@@ -15,8 +15,6 @@ export default function PoolPage() {
     ],
   })
 
-  console.log(api.data['pool'])
-
   return (
     <div>
       <h1>Pool ID: {poolId}</h1>
@@ -26,9 +24,10 @@ export default function PoolPage() {
         api={api}
         request_on_submit={{
           endpoint: `/pool/${poolId}/cards`,
-          id: 'post-pool-table',
-          method: 'POST',
+          id: 'delete-pool',
+          method: 'DELETE',
         }}
+        transformFormData={(d) => d.map(entry => entry.scryfall_id)}
       />
       <ImportCards
         api={api}
@@ -38,6 +37,8 @@ export default function PoolPage() {
           id: 'post-pool',
           method: 'POST',
         }}
+        text_type={'name'}
+        transformRequestData={(d) => d.map(entry => entry.name)}
       />
     </div>
   )

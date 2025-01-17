@@ -1,8 +1,8 @@
 'use client'
 
 import ImportCards from '@components/mtg-card/import-cards'
-import CardDisplayTable from '@components/mtg-card/card-display/table'
-import { ResponseCardInCollection } from '@utils/backend/schemas'
+import CardDisplayTable, { FormDataEntry } from '@components/mtg-card/card-display/table'
+import { GetPool, ResponseCardInCollection } from '@utils/backend/schemas'
 import useApiData from '@utils/backend/use-api-data'
 
 export default function CollectionPage() {
@@ -18,6 +18,7 @@ export default function CollectionPage() {
       <h2>Collection</h2>
       <CardDisplayTable
         data={api.data['collection'] as ResponseCardInCollection[] | null}
+        pools={api.data['collection-pool'] as GetPool[]}
         type={'Collection'}
         api={api}
         request_on_submit={{
@@ -26,6 +27,7 @@ export default function CollectionPage() {
           method: 'POST',
         }}
       />
+      
       <ImportCards
         api={api}
         existing_data_id={'collection'}
@@ -34,6 +36,7 @@ export default function CollectionPage() {
           id: 'post-collection',
           method: 'POST',
         }}
+        text_type='number_and_name'
       />
     </div>
   )
