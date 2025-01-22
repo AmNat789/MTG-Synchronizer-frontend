@@ -50,8 +50,12 @@ export interface ResponseCardNode {
   node: MtgCard
 }
 
-export interface ResponseCardInCollection extends ResponseCardNode {
+export interface ResponseCardAndNumOwned extends ResponseCardNode {
   number_owned: number
+}
+
+export interface ResponseCardAndSyncScore extends ResponseCardNode {
+  sync_score: number
 }
 
 interface GetPoolProps {

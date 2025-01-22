@@ -6,16 +6,15 @@ import {
   TableBody,
   Button,
 } from '@mui/material'
-import { GetPool, ResponseCardInCollection } from '@utils/backend/schemas'
+import { ResponseCardAndNumOwned, ResponseCardNode } from '@utils/backend/schemas'
 import CardDisplayRow from './row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
 import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
 
 interface CardDisplayTableProps {
-  data: ResponseCardInCollection[] | null
-  pools?: GetPool[]
-  type: 'Collection' | 'Pool'
+  data: ResponseCardNode[] | null
+  pool_id?: string
   api: UseApiDataReturn<any>
   request_on_submit: ApiRequest
   transformFormData?: (formData: FormDataEntry[]) => any
@@ -28,11 +27,10 @@ export interface FormDataEntry {
 
 export default function CardDisplayTable({
   data,
-  pools = [],
-  type,
+  pool_id,
   api,
   request_on_submit,
-  transformFormData = (d) => d,
+  transformFormData = d => d,
 }: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
 
@@ -66,7 +64,7 @@ export default function CardDisplayTable({
 
     const formData = getFormData(e)
     const formattedFormData = transformFormData(formData)
-    
+
     await api
       .triggerRequest({
         endpoint: request_on_submit.endpoint,
@@ -79,13 +77,17 @@ export default function CardDisplayTable({
       })
   }
 
+  if(!data){
+    return "Loading Table ...."
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell
-              style={{ display: type == 'Collection' ? 'table-cell' : 'none' }}
+              style={{ display: (data[0] as ResponseCardAndNumOwned).number_owned  ? 'table-cell' : 'none' }}
             >
               Number Owned
             </TableCell>
@@ -113,22 +115,14 @@ export default function CardDisplayTable({
           {data.map(card => (
             <CardDisplayRow
               card={card}
-              type={type}
               key={card.node.scryfall_id}
               edit={edit}
-              pools={pools}
+              pool_id={pool_id}
               api={api}
             />
           ))}
         </TableBody>
       </Table>
-      <Button
-        onClick={() => {
-          console.log(api)
-        }}
-      >
-        click me
-      </Button>
     </form>
   )
 }

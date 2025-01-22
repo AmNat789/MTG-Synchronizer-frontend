@@ -1,5 +1,5 @@
 import { TableCell, TableRow, Card } from '@mui/material'
-import { GetPool, ResponseCardInCollection } from '@utils/backend/schemas'
+import { ResponseCardNode } from '@utils/backend/schemas'
 import { useState } from 'react'
 import CardDisplayRowNumberOwned from '@components/mtg-card/card-display/row-number-owned'
 import CardDisplayRowOracleText from '@components/mtg-card/card-display/row-oracle-text'
@@ -10,15 +10,14 @@ import CardDisplayAddToPool from '@components/mtg-card/card-display/add-to-pool-
 import { UseApiDataReturn } from '@utils/backend/use-api-data'
 
 export interface CardDisplayRowProps {
-  card: ResponseCardInCollection | null
-  type: 'Collection' | 'Pool'
+  card: ResponseCardNode | null
   edit: boolean
-  pools?: GetPool[]
+  pool_id?: string
   api: UseApiDataReturn<any>
 }
 
 export default function CardDisplayRow(props: CardDisplayRowProps) {
-  const { card, edit, type, pools, api } = props
+  const { card, edit, pool_id, api } = props
   const [hidden, setHidden] = useState(false)
 
   if (!card) {
@@ -46,14 +45,11 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
             <CardDisplayDeleteButton card={card} setHidden={setHidden} />
           ) : null}
 
-          {pools && type == 'Collection' && !edit ? (
-            <CardDisplayAddToPool card={card} pools={pools} api={api}/>
+          {pool_id && !edit ? (
+            <CardDisplayAddToPool card={card} pool_id={pool_id} api={api} />
           ) : null}
         </TableCell>
       </TableRow>
-
-      
-      
     </>
   )
 }

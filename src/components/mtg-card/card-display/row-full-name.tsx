@@ -1,12 +1,12 @@
 import { TableCell } from '@mui/material'
 import { useState } from 'react'
 import Image from 'next/image'
-import { ResponseCardInCollection } from '@utils/backend/schemas'
+import { ResponseCardNode } from '@utils/backend/schemas'
 
 export default function CardDisplayRowFullName({
   card,
 }: {
-  card: ResponseCardInCollection
+  card: ResponseCardNode
 }) {
   const [showImg, setShowImg] = useState(false)
 

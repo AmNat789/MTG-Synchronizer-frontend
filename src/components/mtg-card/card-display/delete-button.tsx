@@ -1,9 +1,9 @@
 import { Button } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
-import { ResponseCardInCollection } from '@utils/backend/schemas'
+import { ResponseCardNode } from '@utils/backend/schemas'
 
 interface CardDisplayDeleteButtonProps {
-  card: ResponseCardInCollection
+  card: ResponseCardNode
   setHidden: (hidden: boolean) => void
 }
 export default function CardDisplayDeleteButton({
