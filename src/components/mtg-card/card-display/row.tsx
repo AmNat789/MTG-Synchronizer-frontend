@@ -46,7 +46,7 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
           ) : null}
 
           {pool_id && !edit ? (
-            <CardDisplayAddToPool card={card} pool_id={pool_id} api={api} />
+            <CardDisplayAddToPool card={card} pool_id={pool_id} api={api} setHidden={setHidden} />
           ) : null}
         </TableCell>
       </TableRow>

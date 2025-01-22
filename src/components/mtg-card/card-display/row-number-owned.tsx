@@ -10,7 +10,7 @@ export default function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
 
   const num_owned = (card as ResponseCardAndNumOwned).number_owned
 
-  const display =  num_owned ? 'table-cell' : 'none'
+  const display = num_owned ? 'table-cell' : 'none'
 
   if (edit) {
     return (
@@ -25,5 +25,9 @@ export default function CardDisplayRowNumberOwned(props: CardDisplayRowProps) {
     )
   }
 
-  return <TableCell style={{ display: display }}>{(card as ResponseCardAndNumOwned).number_owned}</TableCell>
+  return (
+    <TableCell style={{ display: display }}>
+      {(card as ResponseCardAndNumOwned).number_owned}
+    </TableCell>
+  )
 }

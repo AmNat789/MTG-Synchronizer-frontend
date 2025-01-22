@@ -2,7 +2,7 @@ import { Button, TextField } from '@mui/material'
 import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
 import { useState, useEffect } from 'react'
 
-interface Card{
+interface Card {
   name: string
   update_amount?: number
 }
@@ -92,7 +92,7 @@ export default function ImportCards({
             name: line.trim(),
           }
         }
-        
+
         // Use regex to match "integer space string" format
         const match = line.trim().match(/^(\d+)\s+(.+)$/)
 
@@ -148,7 +148,10 @@ export default function ImportCards({
         onChange={e => setText(e.target.value)}
         error={error}
         helperText={helperText}
-        placeholder={text_type == 'name' ? "Island \nFireball" : "2 Island \n3 Fireball"}
+        placeholder={
+          text_type == 'name' ? 'Island \nFireball' : '2 Island \n3 Fireball'
+        }
+        style={{ width: '50%' }}
       />
       <Button onClick={handleButtonClick} color={error ? 'error' : 'primary'}>
         Import Cards

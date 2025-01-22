@@ -6,7 +6,10 @@ import {
   TableBody,
   Button,
 } from '@mui/material'
-import { ResponseCardAndNumOwned, ResponseCardNode } from '@utils/backend/schemas'
+import {
+  ResponseCardAndNumOwned,
+  ResponseCardNode,
+} from '@utils/backend/schemas'
 import CardDisplayRow from './row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
@@ -16,7 +19,8 @@ interface CardDisplayTableProps {
   data: ResponseCardNode[] | null
   pool_id?: string
   api: UseApiDataReturn<any>
-  request_on_submit: ApiRequest
+  editable?: boolean
+  request_on_submit?: ApiRequest | null
   transformFormData?: (formData: FormDataEntry[]) => any
 }
 
@@ -30,15 +34,20 @@ export default function CardDisplayTable({
   pool_id,
   api,
   request_on_submit,
+  editable = true,
   transformFormData = d => d,
 }: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
 
-  if (!data) {
-    return null
+  if (!data || data.length === 0) {
+    return 'Loading Table ....'
   }
 
   const handleSubmit = async (e: any) => {
+    if (!request_on_submit) {
+      return
+    }
+
     e.preventDefault()
 
     function getFormData(event: Event): FormDataEntry[] {
@@ -77,17 +86,17 @@ export default function CardDisplayTable({
       })
   }
 
-  if(!data){
-    return "Loading Table ...."
-  }
-
   return (
     <form onSubmit={handleSubmit}>
       <Table>
         <TableHead>
           <TableRow>
             <TableCell
-              style={{ display: (data[0] as ResponseCardAndNumOwned).number_owned  ? 'table-cell' : 'none' }}
+              style={{
+                display: (data[0] as ResponseCardAndNumOwned).number_owned
+                  ? 'table-cell'
+                  : 'none',
+              }}
             >
               Number Owned
             </TableCell>
@@ -95,19 +104,23 @@ export default function CardDisplayTable({
             <TableCell>Oracel Text</TableCell>
             <TableCell>Types</TableCell>
             <TableCell>Colors</TableCell>
-            <TableCell>
-              <Button variant="contained" onClick={() => setEdit(!edit)}>
-                <EditIcon />
-              </Button>
-              <Button
-                disabled={!edit}
-                variant="contained"
-                color="success"
-                type="submit"
-              >
-                Save
-              </Button>
-            </TableCell>
+            {editable ? (
+              <TableCell>
+                <Button variant="contained" onClick={() => setEdit(!edit)}>
+                  <EditIcon />
+                </Button>
+                <Button
+                  disabled={!edit}
+                  variant="contained"
+                  color="success"
+                  type="submit"
+                >
+                  Save
+                </Button>
+              </TableCell>
+            ) : null}
+
+            {pool_id ? <TableCell>Add To Pool</TableCell> : null}
           </TableRow>
         </TableHead>
 
