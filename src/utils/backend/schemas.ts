@@ -4,6 +4,8 @@ export interface MtgCard {
   name_front: string
   name_back?: string
 
+  oracle_texts: string[]
+
   total_recurrences?: number
 
   types: string[]
@@ -44,7 +46,24 @@ export interface MtgCard {
   legality_premodern?: string
 }
 
-export interface ResponseCardInCollection {
+export interface ResponseCardNode {
   node: MtgCard
+}
+
+export interface ResponseCardAndNumOwned extends ResponseCardNode {
   number_owned: number
+}
+
+export interface ResponseCardAndSyncScore extends ResponseCardNode {
+  sync_score: number
+}
+
+interface GetPoolProps {
+  name: string
+  description: string
+  pool_id: number
+}
+
+export interface GetPool {
+  p: GetPoolProps
 }

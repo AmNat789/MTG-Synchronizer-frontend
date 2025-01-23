@@ -6,36 +6,49 @@ import {
   TableBody,
   Button,
 } from '@mui/material'
-import { ResponseCardInCollection } from '@utils/backend/schemas'
-import CardDisplayRow from './card-display-row'
+import {
+  ResponseCardAndNumOwned,
+  ResponseCardNode,
+} from '@utils/backend/schemas'
+import CardDisplayRow from './row'
 import EditIcon from '@mui/icons-material/Edit'
 import { useState } from 'react'
 import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
 
+interface CardDisplayTableProps {
+  data: ResponseCardNode[] | null
+  pool_id?: string
+  api: UseApiDataReturn<any>
+  editable?: boolean
+  request_on_submit?: ApiRequest | null
+  transformFormData?: (formData: FormDataEntry[]) => any
+}
+
+export interface FormDataEntry {
+  scryfall_id: string
+  number_owned: number
+}
+
 export default function CardDisplayTable({
   data,
-  type,
+  pool_id,
   api,
   request_on_submit,
-}: {
-  data: ResponseCardInCollection[] | null
-  type: 'Collection' | 'Pool'
-  api: UseApiDataReturn<any>
-  request_on_submit: ApiRequest
-}) {
+  editable = true,
+  transformFormData = d => d,
+}: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
 
-  if (!data) {
-    return null
+  if (!data || data.length === 0) {
+    return 'Loading Table ....'
   }
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault()
-
-    interface FormDataEntry {
-      scryfall_id: string
-      number_owned: number
+    if (!request_on_submit) {
+      return
     }
+
+    e.preventDefault()
 
     function getFormData(event: Event): FormDataEntry[] {
       const formElements = (event.target as HTMLFormElement).elements
@@ -45,11 +58,11 @@ export default function CardDisplayTable({
         const inputElement = element as HTMLInputElement
 
         if (
-          inputElement.id &&
+          inputElement.name &&
           inputElement.defaultValue !== inputElement.value
         ) {
           formData.push({
-            scryfall_id: inputElement.id,
+            scryfall_id: inputElement.name,
             number_owned: Number(inputElement.value),
           })
         }
@@ -59,13 +72,14 @@ export default function CardDisplayTable({
     }
 
     const formData = getFormData(e)
+    const formattedFormData = transformFormData(formData)
 
     await api
       .triggerRequest({
         endpoint: request_on_submit.endpoint,
         id: request_on_submit.id,
         method: request_on_submit.method,
-        body: formData,
+        body: formattedFormData,
       })
       .then(() => {
         window.location.reload()
@@ -78,24 +92,35 @@ export default function CardDisplayTable({
         <TableHead>
           <TableRow>
             <TableCell
-              style={{ display: type == 'Collection' ? 'table-cell' : 'none' }}
+              style={{
+                display: (data[0] as ResponseCardAndNumOwned).number_owned
+                  ? 'table-cell'
+                  : 'none',
+              }}
             >
               Number Owned
             </TableCell>
             <TableCell>Name</TableCell>
+            <TableCell>Oracel Text</TableCell>
             <TableCell>Types</TableCell>
             <TableCell>Colors</TableCell>
-            <Button variant="contained" onClick={() => setEdit(!edit)}>
-              <EditIcon />
-            </Button>
-            <Button
-              disabled={!edit}
-              variant="contained"
-              color="success"
-              type="submit"
-            >
-              Save
-            </Button>
+            {editable ? (
+              <TableCell>
+                <Button variant="contained" onClick={() => setEdit(!edit)}>
+                  <EditIcon />
+                </Button>
+                <Button
+                  disabled={!edit}
+                  variant="contained"
+                  color="success"
+                  type="submit"
+                >
+                  Save
+                </Button>
+              </TableCell>
+            ) : null}
+
+            {pool_id ? <TableCell>Add To Pool</TableCell> : null}
           </TableRow>
         </TableHead>
 
@@ -103,20 +128,14 @@ export default function CardDisplayTable({
           {data.map(card => (
             <CardDisplayRow
               card={card}
-              type={type}
               key={card.node.scryfall_id}
               edit={edit}
+              pool_id={pool_id}
+              api={api}
             />
           ))}
         </TableBody>
       </Table>
-      <Button
-        onClick={() => {
-          console.log(api)
-        }}
-      >
-        click me
-      </Button>
     </form>
   )
 }

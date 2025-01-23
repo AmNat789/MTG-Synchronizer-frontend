@@ -2,16 +2,25 @@ import { Button, TextField } from '@mui/material'
 import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
 import { useState, useEffect } from 'react'
 
+interface Card {
+  name: string
+  update_amount?: number
+}
+
 interface ImportCardsProps {
   api: UseApiDataReturn<any>
   existing_data_id: string
   request_on_submit: ApiRequest
+  text_type: 'name' | 'number_and_name'
+  transformRequestData?: (data: Card[]) => any
 }
 
-export default function ImportCards({ 
-  api, 
+export default function ImportCards({
+  api,
   existing_data_id,
   request_on_submit,
+  text_type,
+  transformRequestData = (data: any) => data,
 }: ImportCardsProps) {
   const [text, setText] = useState('')
   const [error, setError] = useState(false)
@@ -78,6 +87,12 @@ export default function ImportCards({
 
       const lines = text.trim().split('\n')
       const result = lines.map(line => {
+        if (text_type === 'name') {
+          return {
+            name: line.trim(),
+          }
+        }
+
         // Use regex to match "integer space string" format
         const match = line.trim().match(/^(\d+)\s+(.+)$/)
 
@@ -112,13 +127,13 @@ export default function ImportCards({
   const handleButtonClick = async () => {
     setError(false)
     const cards = textToCards()
-
     if (cards) {
+      const transformedCards = transformRequestData(cards)
       await api.triggerRequest({
         endpoint: request_on_submit.endpoint,
         id: request_on_submit.id,
         method: request_on_submit.method,
-        body: cards,
+        body: transformedCards,
       })
 
       setUpdate(true)
@@ -133,7 +148,10 @@ export default function ImportCards({
         onChange={e => setText(e.target.value)}
         error={error}
         helperText={helperText}
-        placeholder="2 Island"
+        placeholder={
+          text_type == 'name' ? 'Island \nFireball' : '2 Island \n3 Fireball'
+        }
+        style={{ width: '50%' }}
       />
       <Button onClick={handleButtonClick} color={error ? 'error' : 'primary'}>
         Import Cards
