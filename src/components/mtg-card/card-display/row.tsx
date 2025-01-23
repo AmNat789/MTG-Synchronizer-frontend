@@ -6,7 +6,7 @@ import CardDisplayRowOracleText from '@components/mtg-card/card-display/row-orac
 import CardDisplayRowColors from '@components/mtg-card/card-display/row-colors'
 import CardDisplayDeleteButton from '@components/mtg-card/card-display/delete-button'
 import CardDisplayRowFullName from '@components/mtg-card/card-display/row-full-name'
-import CardDisplayAddToPool from '@components/mtg-card/card-display/add-to-pool-button'
+import CardDisplayAddAndIgnorePoolButtons from '@components/mtg-card/card-display/add-and-ignore-pool-buttons'
 import { UseApiDataReturn } from '@utils/backend/use-api-data'
 
 export interface CardDisplayRowProps {
@@ -28,7 +28,7 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
     <>
       <TableRow
         key={card.node.scryfall_id}
-        style={{ display: hidden && edit ? 'none' : undefined }}
+        style={{ display: hidden ? 'none' : undefined }}
       >
         <CardDisplayRowNumberOwned {...props} />
         <CardDisplayRowFullName card={card} />
@@ -45,8 +45,13 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
             <CardDisplayDeleteButton card={card} setHidden={setHidden} />
           ) : null}
 
-          {pool_id && !edit ? (
-            <CardDisplayAddToPool card={card} pool_id={pool_id} api={api} setHidden={setHidden} />
+          {pool_id ? (
+            <CardDisplayAddAndIgnorePoolButtons
+              card={card}
+              pool_id={pool_id}
+              api={api}
+              setHidden={setHidden}
+            />
           ) : null}
         </TableCell>
       </TableRow>
