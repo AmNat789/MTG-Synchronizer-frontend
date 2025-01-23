@@ -4,10 +4,7 @@ import { Button, Card, Checkbox, FormControlLabel, Switch } from '@mui/material'
 import { useParams } from 'next/navigation'
 import useApiData from '@utils/backend/use-api-data'
 import CardDisplayTable from '@components/mtg-card/card-display/table'
-import {
-  ResponseCardAndNumOwned,
-  ResponseCardNode,
-} from '@utils/backend/schemas'
+import { ResponseCardNode } from '@utils/backend/schemas'
 
 export default function PoolSuggestionsPage() {
   const params = useParams()

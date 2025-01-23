@@ -2,9 +2,9 @@ import AddIcon from '@mui/icons-material/Add'
 import CloseIcon from '@mui/icons-material/Close'
 import { Button } from '@mui/material'
 import { ResponseCardNode } from '@utils/backend/schemas'
-import { ApiRequest, UseApiDataReturn } from '@utils/backend/use-api-data'
+import { UseApiDataReturn } from '@utils/backend/use-api-data'
 
-interface CardDisplayAddToPoolProps {
+interface CardDisplayAddAndIgnorePoolButtons {
   card: ResponseCardNode | null
   pool_id?: string
   api: UseApiDataReturn<any>
@@ -16,7 +16,7 @@ export default function CardDisplayAddAndIgnorePoolButtons({
   pool_id,
   api,
   setHidden,
-}: CardDisplayAddToPoolProps) {
+}: CardDisplayAddAndIgnorePoolButtons) {
   const handleRequest = async (
     endpoint: string,
     transform_body: {
