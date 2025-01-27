@@ -1,14 +1,14 @@
-'use client';
+'use client'
 
-import { AuthProvider } from '@utils/auth/auth-context';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import theme from '@styles/theme';
-import { ThemeProvider } from '@emotion/react';
+import { AuthProvider } from '@utils/auth/auth-context'
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
+import theme from '@styles/theme'
+import { ThemeProvider } from '@emotion/react'
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -22,5 +22,5 @@ export default function RootLayout({
         </AppRouterCacheProvider>
       </AuthProvider>
     </html>
-  );
+  )
 }

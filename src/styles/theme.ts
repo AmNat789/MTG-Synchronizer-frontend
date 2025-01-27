@@ -13,7 +13,7 @@ const theme = createTheme({
     },
     background: {
       default: '#e0e1dd',
-    }
+    },
   },
   spacing: 8, // Default spacing unit
 })

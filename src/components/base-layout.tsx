@@ -19,12 +19,10 @@ export default function BaseLayout({
     return <Login />
   }
 
-  console.log(user)
-
   return (
-    <>
+    <div style={{ padding: '0 32px' }}>
       <Header />
       <main>{children}</main>
-    </>
+    </div>
   )
 }
