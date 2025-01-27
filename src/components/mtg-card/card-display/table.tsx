@@ -38,8 +38,9 @@ export default function CardDisplayTable({
   transformFormData = d => d,
 }: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
+  const [reset, setReset] = useState(false)
 
-  if (data && data.length === 0){
+  if (data && data.length === 0) {
     return <>No Cards Found</>
   }
   if (!data) {
@@ -89,6 +90,14 @@ export default function CardDisplayTable({
       })
   }
 
+  const handleEdit = () => {
+    if (edit) {
+      setReset(true)
+      setTimeout(() => setReset(false), 0)
+    }
+    setEdit(!edit)
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <Table>
@@ -109,7 +118,7 @@ export default function CardDisplayTable({
             <TableCell>Colors</TableCell>
             {editable ? (
               <TableCell>
-                <Button variant="contained" onClick={() => setEdit(!edit)}>
+                <Button variant="contained" onClick={handleEdit}>
                   <EditIcon />
                 </Button>
                 <Button
@@ -135,6 +144,7 @@ export default function CardDisplayTable({
               edit={edit}
               pool_id={pool_id}
               api={api}
+              reset={reset}
             />
           ))}
         </TableBody>
