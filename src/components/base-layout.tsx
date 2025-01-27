@@ -2,7 +2,7 @@
 
 import { useAuth } from '@utils/auth/auth-context'
 import Login from '@components/auth/login'
-import LogoutButton from '@components/auth/logout-button'
+import Header from '@components/header'
 
 export default function BaseLayout({
   children,
@@ -23,9 +23,7 @@ export default function BaseLayout({
 
   return (
     <>
-      <header>
-        <LogoutButton />
-      </header>
+      <Header />
       <main>{children}</main>
     </>
   )

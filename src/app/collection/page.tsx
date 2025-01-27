@@ -4,6 +4,7 @@ import ImportCards from '@components/mtg-card/import-cards'
 import CardDisplayTable from '@components/mtg-card/card-display/table'
 import { ResponseCardAndNumOwned } from '@utils/backend/schemas'
 import useApiData from '@utils/backend/use-api-data'
+import BaseLayout from '@components/base-layout'
 
 export default function CollectionPage() {
   const api = useApiData({
@@ -14,7 +15,7 @@ export default function CollectionPage() {
   })
 
   return (
-    <div>
+    <BaseLayout>
       <h2>Collection</h2>
       <ImportCards
         api={api}
@@ -36,6 +37,6 @@ export default function CollectionPage() {
           method: 'POST',
         }}
       />
-    </div>
+    </BaseLayout>
   )
 }

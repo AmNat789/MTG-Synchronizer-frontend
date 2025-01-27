@@ -9,12 +9,12 @@ export default function Login() {
 
   const handleSignIn = async () => {
     await signIn().then(async () => {
-        await api.triggerRequest({
-          endpoint: '/user',
-          id: 'user-login',
-          method: 'POST',
-        })
+      await api.triggerRequest({
+        endpoint: '/user',
+        id: 'user-login',
+        method: 'POST',
       })
+    })
   }
 
   return (

@@ -4,6 +4,7 @@ import useApiData from '@utils/backend/use-api-data'
 import { ResponseCardNode } from '@utils/backend/schemas'
 import { useParams } from 'next/navigation'
 import ImportCards from '@components/mtg-card/import-cards'
+import BaseLayout from '@components/base-layout'
 
 export default function PoolPage() {
   const params = useParams()
@@ -16,7 +17,7 @@ export default function PoolPage() {
   })
 
   return (
-    <div>
+    <BaseLayout>
       <h1>Pool ID: {poolId}</h1>
       <ImportCards
         api={api}
@@ -39,6 +40,6 @@ export default function PoolPage() {
         }}
         transformFormData={d => d.map(entry => entry.scryfall_id)}
       />
-    </div>
+    </BaseLayout>
   )
 }
