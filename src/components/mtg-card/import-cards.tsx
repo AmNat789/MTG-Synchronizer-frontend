@@ -68,12 +68,15 @@ export default function ImportCards({
       if (err.response?.status === 404) {
         setError(true)
         const errorData = err.response?.data as {
-          detail: { missing_cards: string[] }
+          detail: { missing_cards: { name_front: string }[] }
         }
+        console.error(errorData)
         setHelperText(
           <>
             The following cards could not be found: <br />{' '}
-            {errorData.detail.missing_cards.join(', ')}
+            {errorData.detail.missing_cards
+              .map(card => card.name_front.toLowerCase())
+              .join(', ')}
           </>
         )
       }
@@ -151,7 +154,7 @@ export default function ImportCards({
         placeholder={
           text_type == 'name' ? 'Island \nFireball' : '2 Island \n3 Fireball'
         }
-        style={{ width: '50%' }}
+        variant={'filled'}
       />
       <Button onClick={handleButtonClick} color={error ? 'error' : 'primary'}>
         Import Cards

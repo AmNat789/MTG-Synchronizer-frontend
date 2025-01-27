@@ -39,8 +39,11 @@ export default function CardDisplayTable({
 }: CardDisplayTableProps) {
   const [edit, setEdit] = useState(false)
 
-  if (!data || data.length === 0) {
-    return 'Loading Table ....'
+  if (data && data.length === 0){
+    return <>No Cards Found</>
+  }
+  if (!data) {
+    return null
   }
 
   const handleSubmit = async (e: any) => {

@@ -2,7 +2,7 @@
 
 import { useAuth } from '@utils/auth/auth-context'
 import Login from '@components/auth/login'
-import LogoutButton from '@components/auth/logout-button'
+import Header from '@components/header'
 
 export default function BaseLayout({
   children,
@@ -19,14 +19,10 @@ export default function BaseLayout({
     return <Login />
   }
 
-  console.log(user)
-
   return (
-    <>
-      <header>
-        <LogoutButton />
-      </header>
+    <div style={{ padding: '0 32px' }}>
+      <Header />
       <main>{children}</main>
-    </>
+    </div>
   )
 }

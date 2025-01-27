@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import useApiData from '@utils/backend/use-api-data'
 import CardDisplayTable from '@components/mtg-card/card-display/table'
 import { ResponseCardNode } from '@utils/backend/schemas'
+import BaseLayout from '@components/base-layout'
 
 export default function PoolSuggestionsPage() {
   const params = useParams()
@@ -84,7 +85,7 @@ export default function PoolSuggestionsPage() {
   }
 
   return (
-    <div>
+    <BaseLayout>
       <h1>Card Suggestions for Pool ID: {poolId}</h1>
 
       <Card>
@@ -162,6 +163,6 @@ export default function PoolSuggestionsPage() {
         editable={false}
         pool_id={poolId}
       />
-    </div>
+    </BaseLayout>
   )
 }
