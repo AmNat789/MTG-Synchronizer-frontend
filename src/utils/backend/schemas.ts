@@ -67,3 +67,9 @@ interface GetPoolProps {
 export interface GetPool {
   p: GetPoolProps
 }
+
+export interface GetCardClustersResponse {
+  community_id: number[]
+  nodes: MtgCard[]
+  average_synergy: number
+}

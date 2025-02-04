@@ -73,7 +73,7 @@ export default function PoolSuggestionsPage() {
       queryParams.append('legalities', selectedLegalities.join(',')) // Convert array to comma-separated string
     }
 
-    const url = `/pool/suggestions/${poolId}?${queryParams.toString()}`
+    const url = `/suggestions/pool/${poolId}?${queryParams.toString()}`
 
     console.log('Request URL:', url) // Debugging log
 

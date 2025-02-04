@@ -10,7 +10,6 @@ export default function CollectionPage() {
   const api = useApiData({
     initialRequests: [
       { endpoint: '/collection', id: 'collection', method: 'GET' },
-      { endpoint: '/pool', id: 'collection-pool', method: 'GET' },
     ],
   })
 
