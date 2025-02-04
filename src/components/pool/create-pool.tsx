@@ -2,11 +2,14 @@ import { UseApiDataReturn } from '@utils/backend/use-api-data'
 import { Button, TextField } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { RequestUpdateCard } from '@utils/backend/schemas'
 
 export default function CreateCardPool({
   api,
+  cards,
 }: {
   api: UseApiDataReturn<any>
+  cards?: RequestUpdateCard[]
 }) {
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
@@ -23,6 +26,7 @@ export default function CreateCardPool({
         body: {
           name: name,
           description: description,
+          cards: cards,
         },
       })
     }

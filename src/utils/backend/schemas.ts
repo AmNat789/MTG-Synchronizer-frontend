@@ -73,3 +73,8 @@ export interface GetCardClustersResponse {
   nodes: MtgCard[]
   average_synergy: number
 }
+
+export interface RequestUpdateCard {
+  name?: string
+  scryfall_id?: string
+}
