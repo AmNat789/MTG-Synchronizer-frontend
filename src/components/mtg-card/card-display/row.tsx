@@ -1,6 +1,6 @@
 import { TableCell, TableRow, Card } from '@mui/material'
 import { ResponseCardNode } from '@utils/backend/schemas'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CardDisplayRowNumberOwned from '@components/mtg-card/card-display/row-number-owned'
 import CardDisplayRowOracleText from '@components/mtg-card/card-display/row-oracle-text'
 import CardDisplayRowColors from '@components/mtg-card/card-display/row-colors'
@@ -14,11 +14,18 @@ export interface CardDisplayRowProps {
   edit: boolean
   pool_id?: string
   api: UseApiDataReturn<any>
+  reset: boolean
 }
 
 export default function CardDisplayRow(props: CardDisplayRowProps) {
-  const { card, edit, pool_id, api } = props
+  const { card, edit, pool_id, api, reset } = props
   const [hidden, setHidden] = useState(false)
+
+  useEffect(() => {
+    if (reset) {
+      setHidden(false)
+    }
+  }, [reset])
 
   if (!card) {
     return null
@@ -34,8 +41,8 @@ export default function CardDisplayRow(props: CardDisplayRowProps) {
         <CardDisplayRowFullName card={card} />
         <CardDisplayRowOracleText card={card} />
         <TableCell>
-          {card.node.types.map(type => (
-            <Card key={`${card.node.scryfall_id}-${type}`}>{type}</Card>
+          {card.node.types.map((type, idx) => (
+            <Card key={`${card.node.scryfall_id}-type-${idx}`}>{type}</Card>
           ))}
         </TableCell>
         <CardDisplayRowColors card={card} />
